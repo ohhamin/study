@@ -1,8 +1,8 @@
 # 자료구조
 
-- [Array, ArrayList, LinkedList](./자료구조/Array, ArrayList, LinkedList.md)
+- [Array, ArrayList, LinkedList](./자료구조/Array,ArrayList,LinkedList.md)
 
-- [Stack, Queue](./자료구조/Stack, Queue.md)
+- [Stack, Queue](./자료구조/Stack,Queue.md)
 
 - [Tree](./자료구조/Tree.md)
 
