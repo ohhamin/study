@@ -46,6 +46,24 @@
 
 ---
 
+# 운영체제
+
+- [운영체제란?](./운영체제/운영체제란.md)
+
+- [프로세스, 스레드](./운영체제/프로세스,스레드.md)
+
+- [인터럽트](./운영체제/인터럽트.md)
+
+- [PCB, Context Switching](./운영체제/PCB,ContextSwitching.md)
+
+- [IPC](./운영체제/IPC.md)
+
+- [CPU Scheduling](./운영체제/CPU스케줄링.md)
+
+- [데드락](./운영체제/데드락.md)
+
+---
+
 # 알고리즘
 
 - [Array](./알고리즘/1.Array/Array.md)
