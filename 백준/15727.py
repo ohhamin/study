@@ -1,2 +1,2 @@
 l = int(input())
-print((l + 1) // 5)
+print(l//5 + (1 if l%5 else 0))
