@@ -4,7 +4,17 @@
 
 클로저는 함수와 그 함수가 선언 됐을 때의 렉시컬 환경과의 조합이다 => 자신이 선언될 당시의 환경을 기억하는 함수
 
-##### 예시
+##### 예시1
+
+![](closure_assets/2023-02-02-12-48-36-image.png)
+
+![](closure_assets/2023-02-02-12-48-52-image.png)
+
+![](closure_assets/2023-02-02-12-49-09-image.png)
+
+![](closure_assets/2023-02-02-12-49-20-image.png)
+
+##### 예시2
 
 ![](closure_assets/2023-01-26-18-14-03-image.png)
 
