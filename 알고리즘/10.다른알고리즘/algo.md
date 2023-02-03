@@ -57,6 +57,39 @@
   print(n - max(dp))
   ```
 
+- 바이너리 서치 사용
+  
+  ```python
+  n = int(input())
+  array = list(map(int, input().split()))
+  
+  def binarySearch(x):
+      global resultLen
+      s = 0
+      e = resultLen - 1
+      while s <= e:
+          mid = (s + e) // 2
+          if result[mid] == x:
+              return mid
+          elif result[mid] < x:
+              s = mid + 1
+          else:
+              e = mid - 1
+      return s
+  
+  result = [array[0]]
+  resultLen = 1
+  
+  for i in array:
+      if result[-1] < i:
+          result.append(i)
+          resultLen += 1
+      else:
+          idx = binarySearch(i)
+          result[idx] = i
+  print(resultLen)
+  ```
+
 ## 투 포인터
 
 - 특정 조건을 만족하는 연속 구간을 구할 때 사용
@@ -95,8 +128,6 @@
   print(result)
   ```
 
-  
-
 ## Sliding Window
 
 - 배열이나 리스트 요소의 일정 범위의 값을 비교할 때 유용함
@@ -108,7 +139,7 @@
 - ![image-20220621103035682](C:\Users\SSAFY_HAMIN\AppData\Roaming\Typora\typora-user-images\image-20220621103035682.png)
 
 - https://www.acmicpc.net/problem/2559
-
+  
   ```python
   N, K = map(int, input().split())
   arr = list(map(int, input().split()))
@@ -182,8 +213,6 @@
           print(0, end=' ')
   ```
 
-  
-
 ## 플러드필
 
 - 그래프 탐색을 활용하여 색칠하는 알고리즘
@@ -191,7 +220,7 @@
 - ![image-20220621163359071](algo.assets/image-20220621163359071.png)
 
 - https://www.acmicpc.net/problem/2667
-
+  
   ```python
   from collections import deque
   
@@ -227,22 +256,22 @@
 ## 부분합
 
 - 배열의 일부 구간에 대한 합을 빠르게 구하는 스킬
+
 - sum 배열을 만들어 구함
-
 1. 1차원 배열
-
+   
    ![image-20220621164512308](algo.assets/image-20220621164512308.png)
 
 2. 2차원 배열
-
+   
    ![image-20220621164720512](algo.assets/image-20220621164720512.png)
-
+   
    ![image-20220621165822759](algo.assets/image-20220621165822759.png)
-
+   
    - 검은색 27을 구하기 위해선
-
+   
    - 5 (arr[i-1]\[j-1]) + 초록색(sum_arr[i-1]\[j]) + 주황색(sum_arr[i]\[j-1]) - 빨간색(중복)(sum_arr[i-1]\[j-1])
-
+     
      ```python
      arr = [[1, 2, 3, 4], 
             [2, 3, 4, 5], 
@@ -261,7 +290,7 @@
      ```
 
 3. 구간 합
-
+   
    ![image-20220621170419404](algo.assets/image-20220621170419404.png)
 
 ## Trie
@@ -269,9 +298,9 @@
 - 입력되는 문자열을 Tree 형식으로 만들어 빠른 문자열 검색이 가능
 
 - 자동완성이나 검색어 추천 기능에서 Trie 알고리즘 사용
-
+  
   ![image-20220621170651230](algo.assets/image-20220621170651230.png)
-
+  
   ```python
   class Node(object):
       def __init__(self, key, data=None):
@@ -307,17 +336,17 @@
                   current_node = current_node.children[char]
               else:
                   return False
-  		# 데이터가 있다면 마지막 글자(문자의 끝)이므로 존재
+          # 데이터가 있다면 마지막 글자(문자의 끝)이므로 존재
           if current_node.data:
               return True
           else:
               return False
-  	
+  
       # profix로 시작되는 단어를 찾고 배열로 리턴
       def starts_with(self, prefix):
           current_node = self.head
           words = []
-  		
+  
           for p in prefix:
               if p in current_node.children:
                   current_node = current_node.children[p]
@@ -344,7 +373,7 @@
   
           return words
   ```
-
+  
   ```python
   trie = Trie()
   word_list = ["frodo", "front", "firefox", "fire"]
@@ -368,9 +397,9 @@
   None
   ['fire', 'frodo', 'front', 'firefox']
   ```
-
+  
   - https://www.acmicpc.net/problem/5052
-
+  
   - ```python
     import sys
     input = sys.stdin.readline
@@ -402,14 +431,14 @@
                     current_node = current_node.children[char]
                 else:
                     return False
-            
+    
             # 차일드가 있으면 겹치는게 있는 거라 안됨 
             if current_node.children:
                 return True
             else:
                 return False
-    
-    
+    ```
+
     t = int(input())
     for _ in range(t):
         n = int(input())
@@ -563,5 +592,3 @@ print(interval_sum(0, len(arr) - 1, 1, 8, 9))   # 8부터 9까지의 구간 합 
       else:
           print(interval_sum(0, len(arr)-1, 1, b-1, c-1))
   ```
-
-  

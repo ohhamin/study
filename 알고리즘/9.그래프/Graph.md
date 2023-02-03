@@ -10,7 +10,7 @@
 
 - 따라서 후입 선출 구조인 스택을 사용함
 
-- ``` sh
+- ```sh
   # input
   1 2 1 3 2 4 2 5 4 6 5 6 6 7 3 7
   # output
@@ -66,15 +66,14 @@
 - 하나의 시작 정점에서 끝 정점까지
 
 - 음의 가중치 x
-
+  
   ![image-20220621091617592](Graph.assets/image-20220621091617592.png)
-
+  
   ![image-20220621091629915](Graph.assets/image-20220621091629915.png)
-
+  
   ![image-20220621091638762](Graph.assets/image-20220621091638762.png)
-
 1. 일반적 다익스트라
-
+   
    ```python
    import sys
    input = sys.stdin.readline
@@ -121,17 +120,19 @@
    
    
    dijkstra(start)
-   
    for i in range(1, n+1):
-       if distance[i] == INF:
-           print('도달 할 수 없음')
-       else:
-           print(distance[i])
+   if distance[i] == INF:
+       print('도달 할 수 없음')
+   else:
+       print(distance[i])
    ```
+   
+   
 
 2. 우선순위 큐(pq) 다익스트라
-
+   
    ```python
+   python
    import sys
    import heapq
    input = sys.stdin.readline
@@ -178,7 +179,7 @@
 - 음의 가중치 o (시간 복잡도가 더 커서 양수일때는 다익스트라 사용)
 
 - 음수 사이클에서 무한 사이클을 돌아서 그걸 막아야 함
-
+  
   ```python
   import sys
   input = sys.stdin.readline
@@ -263,4 +264,3 @@ for i in range(1, n+1):
             print(graph[i][j], end=' ')
     print()
 ```
-
