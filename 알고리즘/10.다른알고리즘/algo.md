@@ -438,9 +438,10 @@
             else:
                 return False
     ```
-
+    
     t = int(input())
     for _ in range(t):
+    
         n = int(input())
         trie = Trie()
         arr = []
@@ -458,6 +459,9 @@
             print('NO')
         else:
             print('YES')
+    
+    ```
+    
     ```
 
 ## Segment Tree
@@ -592,3 +596,65 @@ print(interval_sum(0, len(arr) - 1, 1, 8, 9))   # 8부터 9까지의 구간 합 
       else:
           print(interval_sum(0, len(arr)-1, 1, b-1, c-1))
   ```
+
+## 펜윅 트리
+
+구간에 대한 연산을 하는데 세그먼트 트리에 비해 메모리 소모량이 적다.
+
+![](algo_assets/2023-02-08-20-04-56-image.png)
+
+![](algo_assets/2023-02-08-20-08-08-image.png)
+
+가장 오른쪽에 있는 1의 값을 적었는데 이를 x라고 두면 현재 index에서 x 칸만큼 더한 값을 가진다.
+
+예를 들어 12는 1100이고 x는 4이다. 그러면 arr[12] + arr[11] + arr[10] + arr[9]의 값을 가진다.
+
+##### 영향 받는 노드 찾기
+
+arr[] 배열에 arr[9]을 넣는다고 가정한다면 arr[9]에 영향을 받는 노드들을 찾아야 한다.
+
+![](algo_assets/2023-02-08-20-21-45-image.png)
+
+9(1001), 10(1010), 12(1100), 16(10000) 인데 1이 존재하는 최 하위 비트에 1을 더한 값이 영향을 받는 노드들이다.
+
+여기서 다음 인덱스 번호를 찾기 위해서는 Idx = Idx + (Idx & -Idx)를 해주면 된다.
+
+9를 예시로 들면 Idx = 1001, -Idx(보수) = 0111 이 되고 둘을 & 연산하면 최 하위 비트인 0001이 나오게 된다.
+
+##### 합 구하기
+
+![](algo_assets/2023-02-08-20-30-25-image.png)
+
+7(0111), 6(0110), 4(0100) 의 합이 되는데 이는 update와 반대로 1이 존재하는 최 하위 비트에서 1을 빼주면 된다.
+
+```python
+import sys
+input = sys.stdin.readline
+
+def update_fenwick_tree(tree, index, value):
+    while index < len(tree):
+        tree[index] += value
+        index += (index & -index)
+    return tree
+
+def query_fenwick_tree(tree, index):
+    res = 0
+    while index > 0:
+        res += tree[index]
+        index -= (index & -index)
+    return res
+
+N, M, K = map(int, input().split())
+
+tree = [0]*(N+1)
+nums = [int(input()) for _ in range(N)]
+for i in range(N):
+    tree = update_fenwick_tree(tree, i+1, nums[i])
+for _ in range(M + K):
+    a, b, c = map(int, input().split())
+    if a == 1:
+        tree = update_fenwick_tree(tree, b, c - nums[b-1])
+        nums[b-1] = c
+    elif a == 2:
+        print(query_fenwick_tree(tree, c) - query_fenwick_tree(tree, b-1))
+```
