@@ -8,9 +8,9 @@
 
 ### 2. 프로세스 상태
 
-![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-01-19-16-10-33-image.png)
+![](CPU스케줄링_assets/2023-02-28-16-10-17-image.png)
 
-##### 프로세스의 상태 전이
+##### 프로세스의 상태 전S이
 
 - 승인(Admitted) : 프로세스 생성이 가능하여 승인됨
 

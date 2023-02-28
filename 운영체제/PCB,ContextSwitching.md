@@ -28,7 +28,7 @@
   
   프로세스 메타데이터들을 저장해 놓는 곳, 한 PCB 안에는 한 프로세스의 정보가 담김
   
-  ![](C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-01-19-15-31-08-image.png)
+  ![](PCB,ContextSwitching_assets/2023-02-28-16-09-03-image.png)
 
 ##### PCB가 필요한 이유
 
