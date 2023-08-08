@@ -1,7 +1,5 @@
 ## LIS (가장 긴 증가하는 부분 수열)
 
-- ![image-20220621104602378](C:\Users\SSAFY_HAMIN\AppData\Roaming\Typora\typora-user-images\image-20220621104602378.png)
-
 - 오름차순으로 증가하는 부분 수열중 가장 길이가 긴 수열을 찾는 알고리즘 (DP 사용)
 
 - 위 수열에서 10 20 30 50
@@ -96,7 +94,7 @@
 
 - 2개의 포인터를 조작하며 답을 찾음
 
-- ![image-20220621103119470](C:\Users\SSAFY_HAMIN\AppData\Roaming\Typora\typora-user-images\image-20220621103119470.png)
+- 
 
 - https://www.acmicpc.net/problem/16472
 
